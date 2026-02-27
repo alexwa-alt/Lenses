@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lens Ray Diagram Tutor (Cambridge iGCSE)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Lens Ray Diagram Tutor</h1>
+    <p>Construct accurate convex/concave lens ray diagrams using Cambridge iGCSE terminology.</p>
+  </header>
+
+  <main class="layout">
+    <section class="panel" id="instructions-panel">
+      <h2>Instructions</h2>
+      <div class="controls">
+        <label>
+          Level
+          <select id="level-select"></select>
+        </label>
+        <label>
+          Mode
+          <select id="mode-select">
+            <option value="guided">Guided (step-by-step)</option>
+            <option value="independent">Independent</option>
+          </select>
+        </label>
+        <label>
+          Focal length f
+          <input id="focal-length-input" type="number" min="60" max="180" step="5" value="110" />
+        </label>
+      </div>
+      <ol id="guided-steps"></ol>
+      <p id="scenario-summary"></p>
+      <div class="button-row">
+        <button id="reset-btn">Reset Level</button>
+        <button id="submit-btn">Submit Construction</button>
+      </div>
+      <div id="feedback" aria-live="polite"></div>
+    </section>
+
+    <section class="panel canvas-panel">
+      <h2>Construction Canvas</h2>
+      <canvas id="diagram-canvas" width="900" height="520"></canvas>
+      <p class="hint">Click object tip, then a snap point to cast rays. Student rays are red. Ideal solution appears green after submit.</p>
+    </section>
+
+    <section class="panel" id="vocab-panel">
+      <h2>Vocabulary & Answers</h2>
+      <p>Drag each term onto the correct target marker:</p>
+      <div id="vocab-bank" class="vocab-bank">
+        <button class="chip" draggable="true" data-term="Principal axis">Principal axis</button>
+        <button class="chip" draggable="true" data-term="Focal point">Focal point</button>
+        <button class="chip" draggable="true" data-term="Focal length">Focal length</button>
+      </div>
+      <div id="dropzone-wrap" class="dropzone-wrap"></div>
+
+      <label for="classification">Image classification</label>
+      <select id="classification">
+        <option value="">Choose...</option>
+        <option>Real, inverted, magnified</option>
+        <option>Real, inverted, diminished</option>
+        <option>Real, inverted, same size</option>
+        <option>Virtual, upright, magnified</option>
+        <option>Virtual, upright, diminished</option>
+      </select>
+
+      <label for="explanation">Explain your result</label>
+      <textarea id="explanation" rows="6" placeholder="Use terms such as principal axis, focal point, real image, virtual image, diverge, backward extension..."></textarea>
+      <p id="progress-note"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
